@@ -1,3 +1,5 @@
+alias counttime_check="$dir/counttime_check"
+
 # zle-line-init widget (don't redefine if already defined)
 (( ! ${+functions[_counttime_zle-line-init]} )) || return 0
 
@@ -12,7 +14,7 @@ case "$widgets[zle-line-init]" in
   # Override the current zle-line-init widget, calling the old one
   user:*) zle -N _counttime_orig_zle-line-init "${widgets[zle-line-init]#user:}"
     function _counttime_zle-line-init() {
-      ($dir/counttime $> /dev/null)
+      ($dir/counttime &> /dev/null)
       zle _counttime_orig_zle-line-init -- "$@"
     } ;;
 esac
