@@ -43,5 +43,5 @@ The PAT for your JIRA instance is located in the following places, in order of p
 * `$JIRA_URL` - Your JIRA instance's URL
 * `$COUNTTIME_AFK_THRESHOLD` - The number of minutes of AFK time before no time is logged. Defaults to 30
 * `$COUNTTIME_COMMENT` - The comment to add to the work log. Defaults to an empty string
-* `$COUNTTIME_CA_PATH` - The path to the CA certificate store. Defaults to `/etc/ssl/certs`
+* `$COUNTTIME_CA_PATH` - The path to the CA certificate store. Defaults to Ruby's `OpenSSL::X509::DEFAULT_CERT_DIR`
 * `$COUNTTIME_PRECISION` - The precision of the number of minutes logged. Must be greater than zero. Defaults to 1. For example, `COUNTTIME_PRECISION=15` will log 15 minutes when the command prompt is generated after 15 minutes have passed.

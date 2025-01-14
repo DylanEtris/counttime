@@ -23,7 +23,7 @@ def jira_pat
 end
 
 def ca_path
-  ENV.fetch('COUNTTIME_CA_PATH', '/etc/ssl/certs')
+  ENV.fetch('COUNTTIME_CA_PATH', nil)
 end
 
 def afk_threshold
