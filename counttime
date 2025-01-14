@@ -22,10 +22,6 @@ def jira_pat
     nil
 end
 
-def ca_path
-  ENV.fetch('COUNTTIME_CA_PATH', nil)
-end
-
 def afk_threshold
   ENV.fetch('COUNTTIME_AFK_THRESHOLD', 30).to_i
 end
@@ -102,7 +98,7 @@ request.body = JSON.generate({
                                'comment' => comment
                              })
 
-Net::HTTP.start(uri.host, uri.port, use_ssl: true, verify_mode: OpenSSL::SSL::VERIFY_PEER, ca_path: ca_path) do |http|
+Net::HTTP.start(uri.host, uri.port, use_ssl: true, verify_mode: OpenSSL::SSL::VERIFY_PEER) do |http|
   res = http.request(request)
   if res.is_a?(Net::HTTPSuccess)
     puts "Logged #{minutes} minutes to #{ticket}"
